@@ -8,8 +8,8 @@ cd $REPOSITORY/$PROJECT_NAME
 echo "> Git Pull"
 git pull
 
-echo "> 프로젝트 Build 수행"
-./gradlew build
+echo "> 프로젝트 Build"
+./gradlew clean build
 
 echo "> repository root 디렉토리로 이동"
 cd $REPOSITORY
@@ -37,10 +37,23 @@ JAR_NAME=$(ls -tr $REPOSITORY/*.jar | tail -n 1)
 echo "> JAR Name: $JAR_NAME"
 
 echo "> $JAR_NAME 실행"
+
+#-------------------------------------------
+# H2 사용
+#-------------------------------------------
+#java -jar \
+#    -Dspring.config.location=classpath:/application.properties,/home/ubuntu/apps/freelec-step1/application-oauth.properties \
+#     $JAR_NAME
+
+#-------------------------------------------
+# RDS 사용
+#-------------------------------------------
 #nohup java -jar \
-#    -Dspring.config.location=classpath:/application.properties,classpath:/application-real.properties,/home/ubuntu/apps/freelec-step1/application-oauth.properties \
+#    -Dspring.config.location=classpath:/application.properties,classpath:/application-real.properties,/home/ubuntu/apps/freelec-step1/application-oauth.properties,/home/ubuntu/apps/freelec-step1/application-real-db.properties \
+#    -Dspring.profiles.active=real \
 #    $JAR_NAME > nohup.out 2>&1 &
 
 java -jar \
-    -Dspring.config.location=classpath:/application.properties,classpath:/application-real.properties,/home/ubuntu/apps/freelec-step1/application-oauth.properties \
+    -Dspring.config.location=classpath:/application.properties,classpath:/application-real.properties,/home/ubuntu/apps/freelec-step1/application-oauth.properties,/home/ubuntu/apps/freelec-step1/application-real-db.properties \
+    -Dspring.profiles.active=real \
      $JAR_NAME
