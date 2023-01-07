@@ -12,7 +12,6 @@ import org.springframework.web.bind.annotation.PathVariable;
 
 import javax.servlet.http.HttpSession;
 import java.io.UnsupportedEncodingException;
-import java.nio.charset.StandardCharsets;
 
 @RequiredArgsConstructor
 @Controller
@@ -66,7 +65,6 @@ public class IndexController {
     public String index(Model model, @LoginUser SessionUser user) throws UnsupportedEncodingException {
         model.addAttribute("posts", postsService.findAllDesc());
         if (user != null) {
-            System.out.println("##### userName: " + user.getName());
             model.addAttribute("userName", user.getName());
         }
         return "index-login";

@@ -6,7 +6,7 @@ plugins {
 }
 
 group = 'com.example.demo'
-version = '0.1.0'
+version = '1.0.1-SNAPSHOT-' + new Date().format("yyyyMMdd_HHmmss")
 sourceCompatibility = '1.8'
 
 repositories {
@@ -14,23 +14,23 @@ repositories {
 }
 
 dependencies {
-	implementation 'org.springframework.boot:spring-boot-starter-web'
-	implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
-	implementation 'com.h2database:h2'
-	implementation 'org.springframework.boot:spring-boot-starter-mustache'
+	compile 'org.springframework.boot:spring-boot-starter-web'
+	compile 'org.springframework.boot:spring-boot-starter-data-jpa'
+	compile 'com.h2database:h2'
+	compile 'org.springframework.boot:spring-boot-starter-mustache'
 	// 쇼셜 기능 구현시 필요한 의존성
 	// spring-security-oauth2-client와 spring-security-oauth2-jose를 기본으로 관리해 준다.
-	implementation 'org.springframework.boot:spring-boot-starter-oauth2-client'
+	compile 'org.springframework.boot:spring-boot-starter-oauth2-client'
 	// 데이터베이스를 세션 저장소로 사용
-	implementation 'org.springframework.session:spring-session-jdbc'
-	implementation 'org.mariadb.jdbc:mariadb-java-client'
-	implementation 'junit:junit'
+	compile 'org.springframework.session:spring-session-jdbc'
+	compile 'org.mariadb.jdbc:mariadb-java-client'
+	compile 'junit:junit'
 
 	compile 'org.projectlombok:lombok'
 	annotationProcessor 'org.projectlombok:lombok'
 
-	testImplementation 'org.springframework.boot:spring-boot-starter-test'
+	testCompile 'org.springframework.boot:spring-boot-starter-test'
 	// 스프링 시큐리티 테스트를 위한 여러 도구를 지원
-	testImplementation 'org.springframework.security:spring-security-test'
+	testCompile 'org.springframework.security:spring-security-test'
 }
 
