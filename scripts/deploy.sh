@@ -41,6 +41,7 @@ set -x
 
 cd ../deploy
 tar xvf ${PROJECT_NAME}.tar
+rm -f ${PROJECT_NAME}.tar
 
 set +x
 echo "---------------------------------------------------------"
