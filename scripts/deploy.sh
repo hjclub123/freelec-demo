@@ -28,8 +28,9 @@ cp scripts/*.sh before-deploy/
 cp build/libs/*.jar before-deploy/
 # before-deploy로 이동후 전체 압축
 cd before-deploy && tar cvf before-deploy.tar * && cd ..
-# deploy 디렉토리 생성
-mkdir -p ../deploy
+
+rm -rf ../deploy
+mkdir ../deploy
 mv before-deploy/before-deploy.tar ../deploy/${PROJECT_NAME}.tar
 rm -rf before-deploy
 
