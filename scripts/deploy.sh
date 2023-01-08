@@ -1,5 +1,7 @@
 #!/bin/bash
 
+chmod +x scripts/*
+
 set -ex
 
 function pause() {
