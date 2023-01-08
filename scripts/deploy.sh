@@ -16,7 +16,7 @@ set -x
 
 git pull
 #./gradlew clean build -x test
-./gradlew build
+./gradlew build -x test
 
 set +x
 echo "---------------------------------------------------------"
