@@ -39,7 +39,7 @@ pause 'CD 3. Deploy - Press any key to continue...'
 echo "---------------------------------------------------------"
 set -x
 
-cd ../deploy
+cd ../deploy/
 tar xvf ${PROJECT_NAME}.tar
 rm -f ${PROJECT_NAME}.tar
 
