@@ -11,12 +11,14 @@ function find_idle_profile()
     # -o 옵션으로 remote data 도 /dev/null 로 보내면 결과물도 출력되지 않는다.
     RESPONSE_CODE=$(curl -s -o /dev/null -w "%{http_code}" http://localhost/profile)
 
-    # 정상이면 200, 오류가 발생했다면 400~503 사이로 발생하니 400 이상은 모두 에러로 보고
-    # real2를 현재 profile로 사용한다?? 현재 엔진엑스와 연결된 스프링 부트가 없는데!
     if [ ${RESPONSE_CODE} -ge 400 ] # 400 보다 크면 (즉, 40x/50x 에러 모두 포함)
     then
+        # 오류가 발생했다면 400~503 사이로 발생하니 400 이상은 모두 에러로 보고
+        # 현재 nginx와 연결된 스프링 부트가 아무것도 없음으로 그냥 real2로 지정하여
+        # IDLE을 real1이 되도록 하여 real1을 먼저 사용하도록 함
         CURRENT_PROFILE=real2
     else
+        # 장상이면 200
         # 둘 중 반드시 하나는 엔진엑스와 연결 되어 있음
         CURRENT_PROFILE=$(curl -s http://localhost/profile)
     fi
