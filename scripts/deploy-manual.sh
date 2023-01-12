@@ -1,7 +1,7 @@
 #!/bin/bash
 
-REPOSITORY=/home/ubuntu/apps/freelec-step1
-PROJECT_NAME=freelec-demo
+REPOSITORY=/home/ubuntu/apps/freelec-step3
+PROJECT_NAME=freelec-demo-src
 
 cd $REPOSITORY/$PROJECT_NAME
 
@@ -52,11 +52,11 @@ echo "> $JAR_NAME 실행"
 #-------------------------------------------
 # real 한개의 애플리케이션만 사용: 8080
 #nohup java -jar \
-#    -Dspring.config.location=classpath:/application.properties,classpath:/application-real.properties,/home/ubuntu/apps/freelec-step1/application-oauth.properties,/home/ubuntu/apps/freelec-step1/application-real-db.properties \
+#    -Dspring.config.location=classpath:/application.properties,classpath:/application-real.properties,$REPOSITORY/application-oauth.properties,$REPOSITORY/application-real-db.properties \
 #    -Dspring.profiles.active=real \
 #    $JAR_NAME > nohup.out 2>&1 &
 
 java -jar \
-    -Dspring.config.location=classpath:/application.properties,classpath:/application-real.properties,/home/ubuntu/apps/freelec-step1/application-oauth.properties,/home/ubuntu/apps/freelec-step1/application-real-db.properties \
+    -Dspring.config.location=classpath:/application.properties,classpath:/application-real.properties,$REPOSITORY/application-oauth.properties,$REPOSITORY/application-real-db.properties \
     -Dspring.profiles.active=real \
      $JAR_NAME

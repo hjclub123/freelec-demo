@@ -55,7 +55,7 @@ set -x
 
 set +x
 echo "---------------------------------------------------------"
-pause 'CD 4. Start - Press any key to continue...'
+pause 'CD 5. Start - Press any key to continue...'
 echo "---------------------------------------------------------"
 set -x
 
@@ -63,7 +63,7 @@ set -x
 
 set +x
 echo "---------------------------------------------------------"
-pause 'CD 4. Health Check - Press any key to continue...'
+pause 'CD 6. Health Check - Press any key to continue...'
 echo "---------------------------------------------------------"
 set -x
 
