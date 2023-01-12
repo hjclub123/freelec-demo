@@ -6,7 +6,8 @@ PROJECT_NAME=freelec-demo-src
 cd $REPOSITORY/$PROJECT_NAME
 
 echo "> 프로젝트 Build"
-./gradlew clean build
+#./gradlew clean build
+./gradlew build
 
 echo "> repository root 디렉토리로 이동"
 cd $REPOSITORY
