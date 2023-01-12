@@ -5,9 +5,6 @@ PROJECT_NAME=freelec-demo-src
 
 cd $REPOSITORY/$PROJECT_NAME
 
-echo "> Git Pull"
-git pull
-
 echo "> 프로젝트 Build"
 ./gradlew clean build
 
@@ -36,15 +33,12 @@ echo "> 새 어플리케이션 배포"
 JAR_NAME=$(ls -tr $REPOSITORY/*.jar | tail -n 1)
 echo "> JAR Name: $JAR_NAME"
 
-echo "> $JAR_NAME 에 실행권한 추가"
-chmod +x $JAR_NAME
-
 echo "> $JAR_NAME 실행"
 #-------------------------------------------
 # H2 사용
 #-------------------------------------------
 #java -jar \
-#    -Dspring.config.location=classpath:/application.properties,/home/ubuntu/apps/freelec-step1/application-oauth.properties \
+#    -Dspring.config.location=classpath:/application.properties,$REPOSITORY/application-oauth.properties \
 #     $JAR_NAME
 
 #-------------------------------------------
