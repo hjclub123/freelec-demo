@@ -12,6 +12,8 @@ echo "> 프로젝트 Build"
 echo "> repository root 디렉토리로 이동"
 cd $REPOSITORY
 
+rm $REPOSITORY/*.jar
+
 echo "> Build 파일 복사"
 cp $REPOSITORY/$PROJECT_NAME/build/libs/*.jar $REPOSITORY/
 
